@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  --background: lightseagreen;
+  --fill: darkorchid;
+  --html: 15;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: aqua; */
+  background-color: var(--background);
+}
+
+.container {
+  position: relative;
+  background-color: white;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 15px;
+  border-radius: 10px;
+  padding: 10px 20px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.container .skill-box {
+  width: 100%;
+}
+
+.skill-box .title {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  color: darkslategrey;
+}
+
+.skill-box .skill-bar {
+  background-color: lightseagreen;
+  margin-top: 16px;
+  height: 8px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.skill-bar .skill-per {
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  height: 100%;
+  background-color: var(--fill);
+  animation: progress 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.skill-per.html {
+  width: 10%;
+  animation-delay: 0.1s;
+}
+
+.skill-per.html .tooltip::after {
+  content: "10%";
+}
+
+.skill-per.css {
+  width: 4%;
+  animation-delay: 0.2s;
+}
+
+.skill-per.css .tooltip::after {
+  content: "4%";
+}
+
+.skill-per.js {
+  width: 12%;
+  animation-delay: 0.3s;
+}
+
+.skill-per.js .tooltip::after {
+  content: "12%";
+}
+
+@keyframes progress {
+  0% {
+    width: 0px;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.skill-per .tooltip {
+  position: absolute;
+  background-color: var(--fill);
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  right: -12px;
+  top: -23px;
+  font-size: 9px;
+  font-weight: 100;
+  padding: 2px 6px;
+  z-index: 1;
+}
+
+.tooltip::before {
+  z-index: -1;
+  content: "";
+  background-color: var(--fill);
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  bottom: -2.3px;
+  left: 50%;
+  transform: translateX(-50%) rotateZ(45deg);
+}
